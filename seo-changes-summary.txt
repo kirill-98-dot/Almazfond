@@ -66,16 +66,81 @@ H1: есть
 Product schema: есть
 Offer: есть
 
-14. Что еще нужно поменять технически:
+14. Индексация, robots, sitemap, дубли, canonical и UTF-8.
+robots.txt работает и содержит:
+Sitemap: https://almazfond.ru/sitemap_index.xml
 
-15. Разобраться с feed-страницами:
-https://almazfond.ru/categories/biznes-suveniry/feed/
-Если RSS не нужен, лучше сделать 404/410 или noindex.
+sitemap_index.xml тоже работает и содержит карты:
+page-sitemap.xml
+product-sitemap1.xml
+product-sitemap2.xml
+product-sitemap3.xml
 
-16. Принять правило для пагинации:
-Рабочие страницы catalog_page=2, catalog_page=3 можно оставить с canonical на основную категорию.
-Несуществующие страницы типа catalog_page=99 лучше закрыть через 404, noindex или редирект.
+15. Закрыл технические URL, которые могли засорять индекс.
+В functions.php был добавлен SEO-блок для технических страниц.
 
-17. Добавить ItemList schema на страницы категорий.
-Сейчас на категориях есть базовая разметка, но нет разметки списка товаров.
-Это можно добавить позже, чтобы поисковику было понятнее, что категория является списком товаров.
+Теперь:
+https://almazfond.ru/categories/biznes-suveniry/feed/ -> 410 Gone
+
+16. Для пагинации каталога поставил noindex.
+Теперь страницы вида:
+https://almazfond.ru/categories/biznes-suveniry/?catalog_page=2
+https://almazfond.ru/categories/biznes-suveniry/?catalog_page=99
+
+отдают:
+Status: 200
+Robots: noindex, follow
+Canonical: https://almazfond.ru/categories/biznes-suveniry/
+
+Основная категория при этом осталась нормальной:
+https://almazfond.ru/categories/biznes-suveniry/
+Status: 200
+Robots: index, follow
+Canonical: на саму категорию
+
+17. Нашел пустой дубль meta description.
+Он был в head.php:
+<meta name="description" content="<?php echo esc_attr(get_bloginfo('description', 'display')); ?>">
+
+Эта строка давала пустой тег:
+<meta name="description" content="">
+
+Строку убрали из head.php.
+
+18. Проверил после удаления пустого description.
+На категориях и товарах пустой дубль исчез.
+Остался нормальный description от Rank Math.
+
+19. Для главной страницы добавили нормальный SEO title и description в Rank Math.
+Теперь главная отдает:
+
+Title:
+Almazfond — премиальные подарки ручной работы
+
+Description:
+Almazfond — премиальные подарки ручной работы из Златоуста: сувенирное оружие, бизнес-сувениры, иконы, посуда и интерьерный декор.
+
+20. Проверил description на главной, категории и товаре.
+Пустых description больше нет.
+
+Главная:
+description есть
+пустого дубля нет
+
+Категория:
+description есть
+пустого дубля нет
+
+Товар:
+description есть
+пустого дубля нет
+
+21. Проверил микроразметку на товарной странице.
+Товарная страница отдает:
+Organization
+WebSite
+BreadcrumbList
+Product
+Offer
+
+22. Теперь все ссылки на фотографии имеют WebP.
