@@ -137,3 +137,11 @@ Offer
 23. Были исправлены некоторые несовпадающие артикулы
 
 24. Была добавлена страница гарантии и сертификаты
+
+25. Были добавлены 6 посадочных страниц по ссылкам:
+https://almazfond.ru/biznes-suveniry-premium/
+https://almazfond.ru/podarki-rukovoditelyu/
+https://almazfond.ru/vip-podarki/
+https://almazfond.ru/korporativnye-podarki/
+https://almazfond.ru/podarki-partneram/
+https://almazfond.ru/podarki-na-yubiley/
