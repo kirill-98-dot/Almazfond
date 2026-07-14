@@ -21,3 +21,11 @@ https://almazfond.ru/podarki-muzhchine/
 https://almazfond.ru/podarok-direktoru/
 https://almazfond.ru/elitnye-podarki/
 https://almazfond.ru/podarki-nachalniku/
+Core Web Vitals
+Убрана задерживающая анимация первого экрана на четырёх новых посадочных.
+Добавлена предварительная загрузка главного изображения и шрифтов.
+Скрипты переведены на defer.
+Изображения ниже первого экрана получили lazy loading, async decoding и фиксированные размеры.  
+Товарный фид
+Адрес: almazfond.ru/yml-feed.xml
+33 категории и 578 валидных товарных предложений.
