@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+
+# Local API credentials and complete analytics exports stay off GitHub.
+secrets/
+raw/keywords/.env
+raw/analytics/
